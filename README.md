@@ -8,14 +8,14 @@ Promo-компонент предназначен для отображения 
 
 ## Использование
 
-1. Импортируйте компонент и изображение:
+1. Компонент и изображение:
 
 ```jsx
 import Promo from "./components/Promo";
 import promoImg from "./components/promo-bg.jpg";
 ```
 
-2. Используйте компонент в вашем приложении:
+2. Компонент в приложении:
 
 ```jsx
 <Promo
@@ -48,8 +48,3 @@ import promoImg from "./components/promo-bg.jpg";
    ```bash
    npm run dev
    ```
-
----
-
-**Автор:**
-- Promo-компонент для React, стилизация по БЭМ
