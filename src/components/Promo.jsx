@@ -2,10 +2,10 @@ import React from "react";
 import "./Promo.css";
 
 const Promo = ({
-  title = "Промо-заголовок",
-  description = "Описание промо-акции или продукта.",
-  buttonLabel = "Подробнее",
-  onButtonClick = () => {},
+  title = "",
+  description = "",
+  buttonLabel = "",
+  onButtonClick = () => { },
   image
 }) => (
   <section className="promo">
