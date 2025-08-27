@@ -1,48 +1,39 @@
-# React Promo Component
+import { useNavigate, Routes, Route } from 'react-router-dom';
+import Promo from './components/Promo';
+import promoImg from './components/trail-lesson.png';
 
-## Описание
+const promoData = {
+  title: 'Пробний урок',
+  description:
+    'Визначивши рівень, щоб оцінити методику, формат навчання, а також познайомитися з викладачем та одногрупниками, ми запрошуємо вас відвідати пробне заняття, яке не потребує оплати.',
+  buttonLabel: 'Забронювати',
+  image: promoImg,
+};
 
-Promo-компонент предназначен для отображения промо-блока с заголовком, описанием, кнопкой и изображением. Все данные передаются через пропсы, что позволяет легко переиспользовать компонент для различных акций, товаров или услуг.
+function App() {
+  const navigate = useNavigate();
 
-## Использование
+  const handleBuyClick = () => navigate('/buy');
 
-1. Компонент и изображение:
-
-```jsx
-import Promo from "./components/Promo";
-import promoImg from "./components/promo-bg.jpg";
-```
-
-2. Компонент в приложении:
-
-```jsx
-<Promo
-  title="Лучший шоколад для вас!"
-  description="Побалуйте себя или близких нашим фирменным шоколадом из отборных ингредиентов."
-  buttonLabel="Купить"
-  onButtonClick={() => alert("Переход к покупке!")}
-  image={promoImg}
-/>
-```
-
-## Пропсы Promo
-- `title` — заголовок промо-блока
-- `description` — описание
-- `buttonLabel` — текст кнопки
-- `onButtonClick` — обработчик клика по кнопке
-- `image` — путь к изображению (import)
-
-## Стили
-
-Стили компонента реализованы по БЭМ и находятся в файле `src/components/Promo.css`.
-
-## Запуск проекта
-
-1. Установите зависимости:
-   ```bash
-   npm install
-   ```
-2. Запустите проект:
-   ```bash
-   npm run dev
-   ```
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Promo
+            {...promoData}
+            onButtonClick={handleBuyClick}
+          />
+        }
+      />
+      <Route
+        path="/buy"
+        element={
+          <div style={{ padding: 40, fontSize: 24 }}>
+            Страница покупки
+          </div>
+        }
+      />
+    </Routes>
+  );
+}
