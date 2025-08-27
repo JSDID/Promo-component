@@ -1,99 +1,145 @@
 .promo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    padding: 40px;
-    border-radius: 24px;
-    background: #f7f7f7;
-    margin: 0 auto;
-    max-width: 1200px;
-    flex-wrap: wrap;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  border-radius: 24px;
+  /* Градиентный фон как на сайте Cambridge */
+  background: linear-gradient(120deg, #a84ca6 0%, #e05a6f 100%);
+  margin: 0 auto;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.promo:hover {
-    transform: translateY(-4px);
+/* SVG-паттерн на фоне */
+.promo::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  height: 100%;
+  background: url("data:image/svg+xml;utf8,<svg width='800' height='600' viewBox='0 0 800 600' fill='none' xmlns='http://www.w3.org/2000/svg'><path opacity='0.08' d='M400 600C621.37 600 800 466.274 800 300C800 133.726 621.37 0 400 0C178.63 0 0 133.726 0 300C0 466.274 178.63 600 400 600Z' fill='white'/></svg>");
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .promo__image-wrapper {
-    flex-shrink: 0;
-    flex-basis: 320px;
+  flex-shrink: 0;
+  flex-basis: 320px;
+  z-index: 1;
 }
 
 .promo__image {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-    object-fit: cover;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
 }
 
 .promo__image:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .promo__content {
-    max-width: 500px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  max-width: 500px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
 }
 
 .promo__title {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 18px;
-    color: #000;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #fff;
 }
 
 .promo__description {
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-bottom: 28px;
-    color: #333;
-    line-height: 1.6;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 28px;
+  color: #fff;
+  line-height: 1.6;
 }
 
 .promo__button {
-    padding: 12px 32px;
-    border-radius: 24px;
-    border: none;
-    background: #ff9800;
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    align-self: flex-start;
+  padding: 12px 32px;
+  border-radius: 24px;
+  border: none;
+  background: #fff;
+  color: #a84ca6;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  align-self: flex-start;
+  box-shadow: none;
 }
 
 .promo__button:hover {
-    background: #e68900;
-    transform: translateY(-2px);
+  background: #f3e6f7;
+  color: #a84ca6;
+  transform: translateY(-2px);
 }
 
 /* Responsive styles */
+@media (max-width: 1024px) {
+  .promo {
+    gap: 24px;
+    padding: 32px;
+  }
+  .promo__content {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
-    .promo {
-        flex-direction: column;
-        text-align: center;
-        padding: 24px;
-    }
+  .promo {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
 
-    .promo__image-wrapper {
-        flex-basis: auto;
-    }
+  .promo__image-wrapper {
+    flex-basis: auto;
+    margin-bottom: 24px;
+  }
 
-    .promo__content {
-        max-width: 100%;
-        align-items: center;
-    }
+  .promo__content {
+    max-width: 100%;
+    align-items: center;
+  }
 
-    .promo__button {
-        align-self: center;
-    }
+  .promo__button {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo {
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .promo__title {
+    font-size: 1.4rem;
+  }
+  .promo__description {
+    font-size: 1rem;
+  }
+  .promo__button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 }
