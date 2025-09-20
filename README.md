@@ -1,4 +1,6 @@
-Промо-компонент для React-приложения, стилизованный под промо-блок Cambridge.ua.
+Промо-компонент для React-приложения, стилизованный под промо-блок Cambridge.ua
+
+<img width="1641" height="562" alt="Screenshot_2025_09_20-9" src="https://github.com/user-attachments/assets/eb6e1245-e0ed-4878-9173-b6f89b2dffa4" />
 
 ## Описание
 
